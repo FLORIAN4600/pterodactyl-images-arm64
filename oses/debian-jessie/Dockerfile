@@ -10,7 +10,10 @@ RUN ln -s /home/container/ /nonexistent
 ENV USER=container HOME=/home/container
 
 ## update base packages
-RUN echo 'deb http://archive.debian.org/debian jessie-backports main' >> /etc/apt/sources.list && echo 'Acquire::Check-Valid-Until no;' > /etc/apt/apt.conf.d/99no-check-valid-until
+RUN echo 'deb [trusted=yes] http://archive.debian.org/debian jessie-backports main' > /etc/apt/sources.list \
+    && echo 'deb [trusted=yes] http://archive.debian.org/debian-security jessie/updates main' >> /etc/apt/sources.list \
+    && echo 'deb [trusted=yes] http://archive.debian.org/debian jessie main' >> /etc/apt/sources.list \
+    && echo 'Acquire::Check-Valid-Until no;' > /etc/apt/apt.conf.d/99no-check-valid-until
 RUN apt-get -y update \
     && apt-get -y upgrade
 
