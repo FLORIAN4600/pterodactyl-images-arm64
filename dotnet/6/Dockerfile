@@ -1,4 +1,4 @@
-FROM        ghcr.io/florian4600/images:debian
+FROM        ghcr.io/florian4600/images:debian-trixie
 
 ENV         DEBIAN_FRONTEND noninteractive
 
@@ -6,7 +6,7 @@ RUN         apt-get update -y \
             && apt-get upgrade -y \
             && apt-get install -y apt-transport-https wget iproute2 \
             && apt-get update -y \
-            && apt-get install -y libgdiplus libgssapi-krb5-2 libssl1.1 libstdc++6 zlib1g
+            && apt-get install -y libgdiplus libgssapi-krb5-2 libssl-dev libstdc++6 zlib1g
 
 RUN         wget https://dot.net/v1/dotnet-install.sh \ 
             && chmod +x dotnet-install.sh \

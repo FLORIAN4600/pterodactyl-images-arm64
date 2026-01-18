@@ -14,7 +14,9 @@ jobs:
       fail-fast: false
       matrix:
         oses: 
-          - debian
+          - debian-trixie
+          - debian-buster
+          - debian-jessie
     steps:
       - name: Code Checkout
         uses: actions/checkout@v6
