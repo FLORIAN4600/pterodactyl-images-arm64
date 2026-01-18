@@ -6,8 +6,6 @@ on:
   push:
     paths:
       - mono/**
-env:
-  BUILDPLATFORM: "linux/arm64"
 jobs:
   push:
     name: "Push"
@@ -35,6 +33,8 @@ jobs:
           password: ${{ secrets.CR_PAT }}
       - name: Build and Push
         uses: docker/build-push-action@v6
+        env:
+          BUILDPLATFORM: "linux/arm64"
         with:
           context: ./mono
           file: ./mono/${{ matrix.tag }}/Dockerfile
