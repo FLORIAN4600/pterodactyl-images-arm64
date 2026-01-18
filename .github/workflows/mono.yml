@@ -19,8 +19,6 @@ jobs:
           - latest
           - 5.14
     steps:
-      - name: Setup ENV Variables
-        run: echo "linux/arm64" >> $BUILDPLATFORM
       - name: Code Checkout
         uses: actions/checkout@v6
       - name: Set up QEMU
