@@ -1,4 +1,4 @@
-FROM        --platform=${{env.BUILDPLATFORM}} ghcr.io/florian4600/images:debian
+FROM        --platform=$BUILDPLATFORM ghcr.io/florian4600/images:debian
 
 ENV         DEBIAN_FRONTEND noninteractive
 
