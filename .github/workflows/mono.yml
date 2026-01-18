@@ -15,6 +15,7 @@ jobs:
       matrix:
         tag:
           - latest
+          - 5.14
     steps:
       - name: Code Checkout
         uses: actions/checkout@v2
@@ -39,4 +40,4 @@ jobs:
           platforms: linux/arm64
           push: true
           tags: |
-            ghcr.io/mikolajkolek/images:mono-${{ matrix.tag }}-arm64
+            ghcr.io/florian4600/images:mono-${{ matrix.tag }}-arm64
