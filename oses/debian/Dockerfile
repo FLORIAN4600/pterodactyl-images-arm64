@@ -18,7 +18,7 @@ RUN apt-get -y install curl
 RUN curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | bash
 
 ## install dependencies
-RUN apt-get -y install gcc g++ libgcc1 libgcc1 libc++-dev gdb libc6 git wget curl tar zip unzip binutils xz-utils liblzo2-2 cabextract iproute2 net-tools netcat telnet libatomic1 libsdl1.2debian libsdl2-2.0-0 \
+RUN apt-get -y install gcc g++ libgcc1 libgcc1 libc++-dev gdb libc6 git wget curl tar zip unzip binutils xz-utils liblzo2-2 cabextract iproute2 net-tools netcat-openbsd telnet libatomic1 libsdl1.2debian libsdl2-2.0-0 \
     libfontconfig libicu-dev icu-devtools libunwind8 libssl-dev sqlite3 libsqlite3-dev libmariadbclient-dev libduktape203 locales ffmpeg gnupg2 apt-transport-https software-properties-common ca-certificates tzdata \
     liblua5.3 libz-dev rapidjson-dev
 
