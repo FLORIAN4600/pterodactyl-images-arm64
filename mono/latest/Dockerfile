@@ -1,3 +1,4 @@
+RUN         echo "$BUILDPLATFORM"
 FROM        --platform=$BUILDPLATFORM ghcr.io/florian4600/images:debian
 
 RUN         apt update \
