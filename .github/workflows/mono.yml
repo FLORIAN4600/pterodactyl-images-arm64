@@ -6,6 +6,8 @@ on:
   push:
     paths:
       - mono/**
+env:
+  BUILDPLATFORM: "linux/arm64"
 jobs:
   push:
     name: "Push"

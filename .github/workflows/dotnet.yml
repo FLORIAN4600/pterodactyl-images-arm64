@@ -6,6 +6,8 @@ on:
   push:
     paths:
       - dotnet/**
+env:
+  BUILDPLATFORM: "linux/arm64"
 jobs:
   push:
     name: "Push"
