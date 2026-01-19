@@ -1,4 +1,4 @@
-FROM debian:jessie-slim
+FROM debian:stretch-slim
 
 ENV DEBIAN_FRONTEND noninteractive
 
@@ -10,10 +10,10 @@ RUN ln -s /home/container/ /nonexistent
 ENV USER=container HOME=/home/container
 
 ## update base packages
-RUN echo 'deb [trusted=yes] http://archive.debian.org/debian jessie-backports main' > /etc/apt/sources.list \
-    && echo 'deb [trusted=yes] http://archive.debian.org/debian-security jessie/updates main' >> /etc/apt/sources.list \
-    && echo 'deb [trusted=yes] http://archive.debian.org/debian jessie main' >> /etc/apt/sources.list \
-    && echo 'deb [trusted=yes] http://mirror.netinch.com/pub/mariadb/repo/10.0/debian jessie main' >> /etc/apt/sources.list \
+RUN echo 'deb [trusted=yes] http://archive.debian.org/debian stretch-backports main' > /etc/apt/sources.list \
+    && echo 'deb [trusted=yes] http://archive.debian.org/debian-security stretch/updates main' >> /etc/apt/sources.list \
+    && echo 'deb [trusted=yes] http://archive.debian.org/debian stretch main' >> /etc/apt/sources.list \
+    && echo 'deb [trusted=yes] https://archive.mariadb.org/repo/10.9.8/debian/ stretch main' >> /etc/apt/sources.list \
     && echo 'Acquire::Check-Valid-Until no;' > /etc/apt/apt.conf.d/99no-check-valid-until
 RUN apt-get -y update \
     && apt-get -y upgrade

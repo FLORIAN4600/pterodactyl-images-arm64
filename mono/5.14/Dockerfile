@@ -1,4 +1,4 @@
-FROM        ghcr.io/florian4600/images:debian-jessie
+FROM        ghcr.io/florian4600/images:debian-stretch
 
 RUN         apt update \
             && apt -y upgrade

@@ -16,7 +16,7 @@ jobs:
         oses: 
           - debian-trixie
           - debian-buster
-          - debian-jessie
+          - debian-stretch
     steps:
       - name: Code Checkout
         uses: actions/checkout@v6
