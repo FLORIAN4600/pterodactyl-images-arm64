@@ -13,7 +13,8 @@ ENV USER=container HOME=/home/container
 RUN echo 'deb [trusted=yes] http://archive.debian.org/debian buster-backports main' > /etc/apt/sources.list \
     && echo 'deb [trusted=yes] http://archive.debian.org/debian-security buster/updates main' >> /etc/apt/sources.list \
     && echo 'deb [trusted=yes] http://archive.debian.org/debian buster main' >> /etc/apt/sources.list \
-    && echo 'Acquire::Check-Valid-Until no;' > /etc/apt/apt.conf.d/99no-check-valid-untilRUN apt-get -y update \
+    && echo 'Acquire::Check-Valid-Until no;' > /etc/apt/apt.conf.d/99no-check-valid-until
+RUN apt-get -y update \
     && apt-get -y upgrade
 
 ## install dependencies
