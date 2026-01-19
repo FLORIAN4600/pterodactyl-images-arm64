@@ -10,6 +10,10 @@ RUN ln -s /home/container/ /nonexistent
 ENV USER=container HOME=/home/container
 
 ## update base packages
+RUN apt-get install software-properties-common \
+    && apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 0xcbcb082a1bb943db \
+    && add-apt-repository 'deb [arch=arm64] http://mirror.netinch.com/pub/mariadb/repo/10.0/debian jessie main' \
+    && apt-get update
 RUN echo 'deb [trusted=yes] http://archive.debian.org/debian jessie-backports main' > /etc/apt/sources.list \
     && echo 'deb [trusted=yes] http://archive.debian.org/debian-security jessie/updates main' >> /etc/apt/sources.list \
     && echo 'deb [trusted=yes] http://archive.debian.org/debian jessie main' >> /etc/apt/sources.list \
@@ -19,7 +23,7 @@ RUN apt-get -y update \
 
 ## install dependencies
 RUN apt-get -y install curl libjson-c2 gcc g++ libgcc1 libgcc1 libc++-dev gdb libc6 git wget curl tar zip unzip binutils xz-utils liblzo2-2 cabextract iproute2 net-tools netcat-openbsd telnet libatomic1 libsdl1.2debian libsdl2-2.0-0 \
-    libfontconfig libicu-dev icu-devtools libunwind8 libssl-dev sqlite3 libsqlite3-dev libmariadb-dev locales ffmpeg gnupg2 apt-transport-https ca-certificates tzdata \
+    libfontconfig libicu-dev icu-devtools libunwind8 libssl-dev sqlite3 libsqlite3-dev libmariadbclient-dev locales ffmpeg gnupg2 apt-transport-https ca-certificates tzdata \
     liblua5.3 libz-dev rapidjson-dev
 
 ## configure locale
