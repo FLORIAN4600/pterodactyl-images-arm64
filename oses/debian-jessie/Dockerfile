@@ -16,9 +16,8 @@ RUN echo 'deb [trusted=yes] http://archive.debian.org/debian jessie-backports ma
     && echo 'Acquire::Check-Valid-Until no;' > /etc/apt/apt.conf.d/99no-check-valid-until
 RUN apt-get -y update \
     && apt-get -y upgrade
-RUN apt-get install software-properties-common \
-    && apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 0xcbcb082a1bb943db \
-    && add-apt-repository 'deb [arch=arm64] http://mirror.netinch.com/pub/mariadb/repo/10.0/debian jessie main' \
+RUN apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 0xcbcb082a1bb943db \
+    && echo 'deb [arch=arm64] http://mirror.netinch.com/pub/mariadb/repo/10.0/debian jessie main' >> /etc/apt/sources.list \
     && apt-get -y update \
     && apt-get -y upgrade
 
