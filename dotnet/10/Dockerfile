@@ -11,7 +11,7 @@ RUN         apt-get update && apt-get install -y --no-install-recommends libc6 l
 RUN         wget https://dot.net/v1/dotnet-install.sh \ 
             && chmod +x dotnet-install.sh \
             && mkdir -p /dotnet \
-            && ./dotnet-install.sh -c 5.0 -InstallDir /dotnet -Runtime dotnet
+            && ./dotnet-install.sh -c 10.0 -InstallDir /dotnet -Runtime dotnet
 
 ENV         DOTNET_ROOT="/dotnet" 
 ENV         PATH="/dotnet:${PATH}"
