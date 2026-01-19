@@ -17,9 +17,8 @@ RUN echo 'deb [trusted=yes] http://archive.debian.org/debian stretch-backports m
 RUN apt-get -y update \
     && apt-get -y upgrade
 
-RUN apt-get -y install wget gpg
+RUN apt-get -y install wget
 
-RUN wget -O- "http://keyserver.ubuntu.com/pks/lookup?op=get&search=0xF1656F24C74CD1D8" | gpg --dearmor | tee /etc/apt/trusted.gpg.d/nondudepot.gpg > /dev/null
 RUN echo 'deb [trusted=yes] http://archive.mariadb.org/repo/10.9.8/debian/ stretch main' >> /etc/apt/sources.list
 RUN apt-get -y update \
     && apt-get -y upgrade
