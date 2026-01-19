@@ -10,8 +10,6 @@ RUN ln -s /home/container/ /nonexistent
 ENV USER=container HOME=/home/container
 
 ## update base packages
-RUN curl -Lo mariadb.deb https://snapshot.debian.org/archive/debian/20190125T034313Z/pool/main/m/mariadb-10.3/mariadb-server-10.3_10.3.12-2_arm64.deb \
-    && dpkg -i mariadb.deb && rm mariadb.deb
 RUN echo 'deb [trusted=yes] http://archive.debian.org/debian buster-backports main' > /etc/apt/sources.list \
     && echo 'deb [trusted=yes] http://archive.debian.org/debian-security buster/updates main' >> /etc/apt/sources.list \
     && echo 'deb [trusted=yes] http://archive.debian.org/debian buster main' >> /etc/apt/sources.list \
@@ -23,6 +21,8 @@ RUN apt-get -y update \
 RUN apt-get -y install curl gcc g++ libgcc1 libgcc1 libc++-dev gdb libc6 git wget curl tar zip unzip binutils xz-utils liblzo2-2 cabextract iproute2 net-tools netcat-openbsd telnet libatomic1 libsdl1.2debian libsdl2-2.0-0 \
     libfontconfig libicu-dev icu-devtools libunwind8 libssl-dev sqlite3 libsqlite3-dev libmariadb-dev locales ffmpeg gnupg2 apt-transport-https ca-certificates tzdata \
     liblua5.3 libz-dev rapidjson-dev
+RUN curl -Lo mariadb.deb https://snapshot.debian.org/archive/debian/20190125T034313Z/pool/main/m/mariadb-10.3/mariadb-server-10.3_10.3.12-2_arm64.deb \
+    && dpkg -i mariadb.deb && rm mariadb.deb
 
 ## configure locale
 RUN update-locale lang=en_US.UTF-8 \
