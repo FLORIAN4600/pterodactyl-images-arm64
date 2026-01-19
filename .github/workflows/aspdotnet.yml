@@ -5,7 +5,7 @@ on:
     - cron: "0 0 * * 1"
   push:
     paths:
-      - dotnet/**
+      - aspdotnet/**
 env:
   BUILDPLATFORM: "linux/arm64"
 jobs:
@@ -40,9 +40,9 @@ jobs:
       - name: Build and Push
         uses: docker/build-push-action@v6
         with:
-          context: ./dotnet
-          file: ./dotnet/${{ matrix.tag }}/Dockerfile
+          context: ./aspdotnet
+          file: ./aspdotnet/${{ matrix.tag }}/Dockerfile
           platforms: linux/arm64
           push: true
           tags: |
-            ghcr.io/florian4600/images:dotnet_${{ matrix.tag }}
+            ghcr.io/florian4600/images:aspdotnet_${{ matrix.tag }}
