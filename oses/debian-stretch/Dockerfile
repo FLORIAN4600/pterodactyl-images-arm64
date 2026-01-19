@@ -13,7 +13,7 @@ ENV USER=container HOME=/home/container
 RUN echo 'deb [trusted=yes] http://archive.debian.org/debian stretch-backports main' > /etc/apt/sources.list \
     && echo 'deb [trusted=yes] http://archive.debian.org/debian-security stretch/updates main' >> /etc/apt/sources.list \
     && echo 'deb [trusted=yes] http://archive.debian.org/debian stretch main' >> /etc/apt/sources.list \
-    && echo 'deb [trusted=yes] https://archive.mariadb.org/repo/10.9.8/debian/ stretch main' >> /etc/apt/sources.list \
+    && echo 'deb [trusted=yes] http://archive.mariadb.org/repo/10.9.8/debian/ stretch main' >> /etc/apt/sources.list \
     && echo 'Acquire::Check-Valid-Until no;' > /etc/apt/apt.conf.d/99no-check-valid-until
 RUN apt-get -y update \
     && apt-get -y upgrade
