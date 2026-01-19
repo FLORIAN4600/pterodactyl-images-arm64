@@ -15,10 +15,12 @@ jobs:
     strategy: 
       fail-fast: false
       matrix:
-        tag: 
+        tag:
+          - 3
           - 5
           - 6
           - 8
+          - 10
 
     steps:
       - name: Code Checkout
